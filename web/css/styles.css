@@ -1,0 +1,22 @@
+
+body{
+    background-image: url("../image/parque.png");
+    background-size: cover; 
+}
+
+.contenedor{
+    border: solid 1px purple;
+    border-radius: 25px;
+    background-color: #ABAEB2;
+       
+}
+
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+}
+
