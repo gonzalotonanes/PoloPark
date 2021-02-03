@@ -3,10 +3,8 @@ function AbrirFormReg(URL)
     window.location.href = URL;
 }
 
-
 function tablasForm(tabla) {
     var ajaxRequest = new XMLHttpRequest();
-    alert(tabla)
     ajaxRequest.onreadystatechange = function () {
 
 
