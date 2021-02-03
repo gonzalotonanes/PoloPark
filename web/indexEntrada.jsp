@@ -33,10 +33,7 @@
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     </head>
     <body>
-        <div class="d-flex" id="content-wrapper">
-            <jsp:include page="./sidebar.jsp"></jsp:include>
                 <div class="w-100">
-                <jsp:include page="./header.jsp"></jsp:include>
                 <div id="content" class="bg-grey w-100">
 
                     <section class="bg-light py-3">
@@ -46,8 +43,8 @@
                                     <!-- ACA IRIA EL TITULO DEL JSP CORRESPONDIENTE-->
                                     <h2 class="text-center">Entradas</h2>
                                     <div class="container align-items-center text-center contenedorBotones">
-                                        <button onclick="menuVentaEntrada()" type="button" class="btn btn-success">Vender</button>
-                                        <button onclick="menuListarEntradas()" type="button" class="btn btn-success">Listar</button>
+                                        <button onclick="tablasForm('./ventaEntrada.jsp')" type="button" class="btn btn-success">Vender</button>
+                                        <button onclick="tablasForm('./listarEntradas.jsp')" type="button" class="btn btn-success">Listar</button>
                                     </div>
                                 </div>
 
@@ -59,45 +56,8 @@
                     <div class="container " id="info"></div>
                 </div>
             </div>
-        </div>
         <!--FUNCION DE PRUEBA AJAX-->
-        <script type="text/javascript">
-
-            //0 Peticion no ha sido aprobada
-            //1 Peticion ha sido establecida
-            //2 Peticion ha sio enviada
-            //3 Peticion esta siendo establecida
-            //4 Peticion ha sido finalizada
-            // PASAR TODO A UNA FUNCION
-            function menuVentaEntrada() {
-
-                var ajaxRequest = new XMLHttpRequest();
-                ajaxRequest.onreadystatechange = function () {
-
-
-                    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
-                        document.getElementById("info").innerHTML = ajaxRequest.responseText;
-                    }
-                }
-
-                ajaxRequest.open("GET", "./ventaEntrada.jsp", true);
-                ajaxRequest.send();
-            }
-
-            function menuListarEntradas() {
-                var ajaxRequest = new XMLHttpRequest();
-                ajaxRequest.onreadystatechange = function () {
-
-
-                    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
-                        document.getElementById("info").innerHTML = ajaxRequest.responseText;
-                    }
-                }
-
-                ajaxRequest.open("GET", "./listarEntradas.jsp", true);
-                ajaxRequest.send();
-            }
-        </script>
+       
 
         <script src="./js/scripts.js"></script>
 

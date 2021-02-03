@@ -28,7 +28,7 @@
     </head>
     <body>
 
-        <div class="container" id="editarJuego">
+        
             <table class="table table-striped table-hover">
 
                 <thead>
@@ -62,7 +62,7 @@
                     <% }%>
                 </tbody>
             </table>
-        </div>
+        
 
                 
         <!-- Optional JavaScript -->

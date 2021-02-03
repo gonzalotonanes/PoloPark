@@ -33,95 +33,33 @@
         <title>Juegos</title>
     </head>
     <body>
-        <div class="d-flex" id="content-wrapper">
-            <jsp:include page="./sidebar.jsp"></jsp:include>
-                <div class="w-100">
-                <jsp:include page="./header.jsp"></jsp:include>
-                <div id="content" class="bg-grey w-100">
+        <div class="w-100">
+            <div id="content" class="bg-grey w-100">
+                <section class="bg-light py-3">
+                    
+                        <div class="row">
+                            <div class="col-lg-9 col-md-8">
+                                <!-- ACA IRIA EL TITULO DEL JSP CORRESPONDIENTE-->
+                                <h2 class="text-center">Juegos</h2>
 
-                    <section class="bg-light py-3">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-9 col-md-8">
-                                    <!-- ACA IRIA EL TITULO DEL JSP CORRESPONDIENTE-->
-                                    <h2 class="text-center">Juegos</h2>
+                                <div class="container align-items-center text-center contenedorBotones">
+                                    <button onclick="tablasForm('./listarJuegos.jsp')" type="button" class="btn btn-success">Listar Juegos</button>
+                                    <button onclick="tablasForm('./crearJuego.jsp')" type="button" class="btn btn-success">Nuevo Juego</button>
 
-                                    <div class="container align-items-center text-center contenedorBotones">
-                                        <button onclick="ejecutarAjax()" type="button" class="btn btn-success">Listar Juegos</button>
-                                        <button onclick="nuevoJuego()" type="button" class="btn btn-success">Nuevo Juego</button>
-                                        
 
-                                    </div>
                                 </div>
 
                             </div>
-                        </div>
-                    </section>
-                    <div class="container " id="info"></div>
 
-                </div>-->
+                       
+                    </div>
+                </section>
+                <div class="container " id="info"></div>
 
             </div>
 
         </div>
-
-        <!--FUNCION DE PRUEBA AJAX-->
-        <script type="text/javascript">
-
-            //0 Peticion no ha sido aprobada
-            //1 Peticion ha sido establecida
-            //2 Peticion ha sio enviada
-            //3 Peticion esta siendo establecida
-            //4 Peticion ha sido finalizada
-            function ejecutarAjax() {
-
-                var ajaxRequest = new XMLHttpRequest();
-                ajaxRequest.onreadystatechange = function () {
-
-
-                    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
-                        document.getElementById("info").innerHTML = ajaxRequest.responseText;
-                    }
-                }
-
-                ajaxRequest.open("GET", "./listarJuegos.jsp", true);
-                ajaxRequest.send();
-            }
-            function nuevoJuego() {
-
-                var ajaxRequest = new XMLHttpRequest();
-                ajaxRequest.onreadystatechange = function () {
-
-
-                    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
-                        document.getElementById("info").innerHTML = ajaxRequest.responseText;
-                    }
-                }
-
-                ajaxRequest.open("GET", "./crearJuego.jsp", true);
-                ajaxRequest.send();
-            }
-            
-                function editarJuego(juego) {
-
-                
-
-                var ajaxRequest = new XMLHttpRequest();
-                ajaxRequest.onreadystatechange = function () {
-
-
-                    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
-                        document.getElementById("editarJuego").innerHTML = ajaxRequest.responseText;
-                    }
-                }
-
-                ajaxRequest.open("GET", "./editarJuego.jsp?prueba="+juego, true);
-                ajaxRequest.send();
-            }
-
-
-
-        </script>
+        <script src="./js/scripts.js"></script>
 
 
         <!-- Optional JavaScript -->

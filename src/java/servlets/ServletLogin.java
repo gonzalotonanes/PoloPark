@@ -68,7 +68,10 @@ public class ServletLogin extends HttpServlet {
             int id= user.getId();
             Empleado emp= control.obtenerEmpleado(36172960);
             sesion.setAttribute("emple", emp);
-            response.sendRedirect("empleados.jsp");
+            //LINEA ORIGINAL
+            //response.sendRedirect("empleados.jsp");
+            //LINEA DE PRUEBA
+            response.sendRedirect("indexEmpleados.jsp");
         }
         
         

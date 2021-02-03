@@ -9,11 +9,11 @@ body {
     font-family: 'Muli', sans-serif;
     font-weight: 300;
     color: var(--primary);
-    
 }
 
 a:hover {
-    text-decoration: none;
+    text-decoration: #B2E3A7;
+    cursor:pointer;
 }
 
 .bg-primary { background-color: var(--primary) !important; }
@@ -50,7 +50,7 @@ a:hover {
 #content {
     overflow-y: auto;
     height: 100vh;
-    padding-bottom: 5rem;
+    /*padding-bottom: 5rem;*/
     background-image: url("../../image/parque.png");
     background-size: cover;
     
@@ -85,8 +85,7 @@ a:hover {
   
 
   .contenedor{
-      border: 1px solid black;
-      border-radius: 10px;
+     width: 100vh;
       
   }
   
@@ -96,4 +95,12 @@ a:hover {
          
   }
   
+  #submenu{
+      width: 100%;
+      
+  }
+  
+  #divBtn{
+      width: 100%;
+  }
  

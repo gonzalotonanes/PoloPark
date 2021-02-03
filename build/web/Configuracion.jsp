@@ -6,31 +6,27 @@
         <title>Configuracion</title>
     </head>
     <body>
-        <div class="d-flex" id="content-wrapper">
-            <jsp:include page="./sidebar.jsp"></jsp:include>
-            <div class="w-100">
-                 <jsp:include page="./header.jsp"></jsp:include>
-                 <section class="bg-light py-3">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-9 col-md-8">
-                                <!-- ACA IRIA EL TITULO DEL JSP CORRESPONDIENTE-->
-                                <h2 class="text-center">Configuración</h2>
-                                <div class="container align-items-center text-center contenedorBotones">
-                                            <button onclick="jspNuevoHorario()" type="button" class="btn btn-success">Agregar horario</button>
-                                            <button onclick="jspListarHorarios()" type="button" class="btn btn-success">Listar horarios</button>
-                                        </div>
+        <div id="content" class="w-100">
+            <section class="bg-light py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-8">
+                            <!-- ACA IRIA EL TITULO DEL JSP CORRESPONDIENTE-->
+                            <h2 class="text-center">Configuración</h2>
+                            <div class="container align-items-center text-center contenedorBotones">
+                                <button onclick="tablasForm('./NuevoHorario.jsp')" type="button" class="btn btn-success">Agregar horario</button>
+                                <button onclick="tablasForm('./listarHorarios.jsp')" type="button" class="btn btn-success">Listar horarios</button>
                             </div>
-
                         </div>
+
                     </div>
-                </section>
-                 <div class="container" id="info">
-                     
-                 </div>
+                </div>
+            </section>
+            <div class="container" id="info">
+
             </div>
         </div>
-                 
-                 <script src="./js/scripts.js"></script>
+
+        <script src="./js/scripts.js"></script>
     </body>
 </html>
