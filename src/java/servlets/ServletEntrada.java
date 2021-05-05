@@ -5,6 +5,7 @@ import Logica.Entrada;
 import Logica.Horario;
 import Logica.Juego;
 import Persistencia.ControladoraParque;
+import Persistencia.ControllerGame;
 import Utilidades.Fecha;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -61,19 +62,18 @@ public class ServletEntrada extends HttpServlet {
         Date fechaConvertida= Fecha.deStringToDate(fecha);
         String hora= request.getParameter("hora");
         //JUEGO
-        String nombreJuego= request.getParameter("juego");
+        String idGame= request.getParameter("juego");
+        int id= Integer.parseInt(idGame);
         //RECUPERAR JUEGO
         
-        
-        
+         
         String[] hh= hora.split(":");
         
+        ControllerGame ctrlGame= new ControllerGame();
+        
+        Juego juego= ctrlGame.findGame(id);
         
         
-        
-        
-        
-        Juego juego= obtenerJuego(nombreJuego);
         
         Horario horario= juego.getHorario();
         
@@ -87,16 +87,14 @@ public class ServletEntrada extends HttpServlet {
             control.crearCliente(cliente);
             Entrada entrada= new Entrada(fechaConvertida, cliente, juego,hora);
             control.crearEntrada(entrada);
-            response.sendRedirect("indexEntrada.jsp");
+            response.sendRedirect("/PoloPark/indexTickets.jsp");
         }else{
               
               request.setAttribute("error", "ERROR");
               processRequest(request, response);
           }
-        
-        //
-        
     }
+    
     @Override
     public String getServletInfo() {
         return "Short description";
@@ -127,22 +125,6 @@ public class ServletEntrada extends HttpServlet {
         
     }
    
-    private Juego obtenerJuego(String nombreJuego){
-        
-            Juego juego=null;
-         ControladoraParque control= new ControladoraParque();
-        
-        List<Juego> juegos= control.obtenerJuegos();
-        for (Juego j : juegos) {
-            
-            if (j.getNombre().equals("Trencito")) {
-                juego=j;
-                return juego;
-            }
-        }
-        
-        
-        return juego;
-    }
+  
 
 }

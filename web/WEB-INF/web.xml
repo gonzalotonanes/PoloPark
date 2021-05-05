@@ -6,7 +6,7 @@
 	 version="3.1">
     <session-config>
         <session-timeout>
-            30
+            10
         </session-timeout>
     </session-config>
     
@@ -14,11 +14,25 @@
         <filter-name>FiltroLogin</filter-name>
         <filter-class>Filtros.FiltroLogin</filter-class>
     </filter>
-    
+
     <filter-mapping>
         <filter-name>FiltroLogin</filter-name>
-        <url-pattern>/empleados.jsp</url-pattern>
-        <url-pattern>/indexJuegos.jsp</url-pattern>
-        <url-pattern>/indexEntrada.jsp</url-pattern>
+        <url-pattern>/PoloPark/indexEmployees.jsp</url-pattern>
+        <url-pattern>/indexGame.jsp</url-pattern>
+        <url-pattern>/indexTickets.jsp</url-pattern>
+        <url-pattern>/indexPark.jsp</url-pattern>
+        <url-pattern>/indexUser.jsp</url-pattern>
+        <url-pattern>/indexConfig.jsp</url-pattern>
     </filter-mapping>
+    
+    <filter>
+        <filter-name>FiltroSchedule</filter-name>
+        <filter-class>Filtros.FilterSchedule</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroSchedule</filter-name>
+        <url-pattern>/createGame.jsp</url-pattern>
+    </filter-mapping>
+    
+    
 </web-app>

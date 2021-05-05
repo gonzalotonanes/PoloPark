@@ -15,11 +15,11 @@ public class Usuario implements Serializable {
     private int id;
     @Basic
     private String usuario;
-    private String contraseña;
+    private String password;
 
-    public Usuario(String usuario, String contraseña) {
+    public Usuario(String usuario, String password) {
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.password = password;
     }
 
     public int getId() {
@@ -42,12 +42,12 @@ public class Usuario implements Serializable {
         this.usuario = nombre;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String contraseña) {
+        this.password = contraseña;
     }
     
 

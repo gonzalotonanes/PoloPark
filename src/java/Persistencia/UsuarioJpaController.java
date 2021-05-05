@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Persistencia;
 
 import Logica.Usuario;
@@ -13,14 +8,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author gon
- */
 public class UsuarioJpaController implements Serializable {
 
     public UsuarioJpaController(EntityManagerFactory emf) {
@@ -118,8 +110,6 @@ public class UsuarioJpaController implements Serializable {
         }
     }
 
-   
-
     public Usuario findUsuario(int id) {
         EntityManager em = getEntityManager();
         try {
@@ -128,9 +118,28 @@ public class UsuarioJpaController implements Serializable {
             em.close();
         }
     }
+
     
-   
-      
+    //QUERY PERSONALIZADA
+    public Usuario findUserByNameAndPass(String name, String password) {
+
+        try {
+            EntityManager em = getEntityManager();
+            Query nativeQuery = em.createNativeQuery("SELECT id,usuario,password FROM usuario WHERE usuario = ? and password= ?");
+            nativeQuery.setParameter(1, name);
+            nativeQuery.setParameter(2, password);
+            Usuario usuario = new Usuario();
+            Object[] result = (Object[]) nativeQuery.getSingleResult();
+
+            usuario.setId((Integer) result[0]);
+            usuario.setUsuario((String) result[1]);
+            usuario.setPassword((String) result[2]);
+            return usuario;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
     public int getUsuarioCount() {
         EntityManager em = getEntityManager();
         try {

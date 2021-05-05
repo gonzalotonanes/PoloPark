@@ -43,15 +43,15 @@ public class ServletRegJuego extends HttpServlet {
         String nombre=request.getParameter("nombre");
         int capacidad= Integer.parseInt(request.getParameter("capacidad"));
         int id= Integer.parseInt(request.getParameter("horario"));
-        Horario h =recuperarJuego(id);
-        Juego juego= new Juego(nombre, capacidad, h);
+        //Horario h =recuperarJuego(id);
+        
         
         ControladoraParque control = new ControladoraParque();
-        
-        
+        Horario h= control.obtenerHorario(id);
+        Juego juego= new Juego(nombre, capacidad, h);
         control.crearJuego(juego);
         
-        response.sendRedirect("indexJuegos.jsp");
+        response.sendRedirect("indexGame.jsp");
         
         
         //processRequest(request, response);

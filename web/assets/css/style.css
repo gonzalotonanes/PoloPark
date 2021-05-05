@@ -9,6 +9,9 @@ body {
     font-family: 'Muli', sans-serif;
     font-weight: 300;
     color: var(--primary);
+    //background-image: url("../image/parque.jpg");
+    //background-size: cover;
+    
 }
 
 a:hover {
@@ -34,26 +37,21 @@ a:hover {
 }
 
 #sidebar-container {
-    min-height: 100vh;
-    border-radius: 20px;
-    background: #AAB4C1;
+    display: inline-block;
+    height: 100vh;
+    border-radius: 0px !important;
+    width: 200px;
 }
-  
-#sidebar-container .logo{
-    padding: 0.875rem 1.25rem;
-}
+
 
 #sidebar-container .menu {
-    width: 18rem;
+    
 }
 
-#content {
-    overflow-y: auto;
-    height: 100vh;
-    /*padding-bottom: 5rem;*/
-    background-image: url("../../image/parque.png");
-    background-size: cover;
+#content,#submenu {
     
+    //height: 100vh;
+
 }
 
 .avatar {
@@ -73,7 +71,7 @@ a:hover {
     border-radius: 20px;
 }
 
-  
+ /*
 @media (max-width: 768px) {
     #sidebar-container {
       display: none;
@@ -81,26 +79,45 @@ a:hover {
     .stat {
         border: 0;
     }
-  }
+  }*/
   
 
-  .contenedor{
-     width: 100vh;
-      
+.contenedor{
+     
+  
   }
   
-  .contenedorBotones{
-      background-color: #B2E3A7;
+.contenedorBotones{
       border-radius: 20px;
-         
   }
   
   #submenu{
       width: 100%;
       
+      
+      
   }
   
   #divBtn{
       width: 100%;
+  }
+  
+  
+  #menuGame{
+      position: absolute;
+      display: inline-block;
+      
+      
+  }
+  
+  .backgorund-Trans{
+      background-color: rgba(255, 0, 0, 0.0) !important;
+      
+      
+      
+  }
+  
+  #tables{
+      background: rgba(255, 0, 0, 0.0) !important;
   }
  

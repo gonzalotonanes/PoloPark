@@ -13,6 +13,8 @@ import java.util.logging.Logger;
 
 public class ControladoraParque {
 
+    
+    //HACER UNA CONTROLADORA POR CADA CLASE
     EmpleadoJpaController empleadoJPA = new EmpleadoJpaController();
     JuegoJpaController juegoJPA = new JuegoJpaController();
     UsuarioJpaController usuarioJPA = new UsuarioJpaController();
@@ -38,10 +40,25 @@ public class ControladoraParque {
             Logger.getLogger(ControladoraParque.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void EditEmployed(Empleado emp){
+        try {
+            this.empleadoJPA.edit(emp);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraParque.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
 
     public Empleado obtenerEmpleado(int dni) {
 
         return this.empleadoJPA.findEmpleado(dni);
+    }
+    
+    public Empleado obtenerEmpleadoIdUser(int dni) {
+
+        return this.empleadoJPA.findEmpleadoByIdUser(dni);
     }
 
     public void modificarEmpleado(Empleado emp) {
@@ -71,8 +88,24 @@ public class ControladoraParque {
         Usuario u=usuarioJPA.findUsuario(id);
         return u;
     }
+    
+    public Usuario obtenerUsuarioByNameAndPass(String name, String pass) {
+        
+        return this.usuarioJPA.findUserByNameAndPass(name,pass);
+    }
+    
+    
     public List<Usuario> obtenerUsuarios(){
         return this.usuarioJPA.findUsuarioEntities();
+    }
+    
+    public void editUser(Usuario user){
+        
+        try {
+            this.usuarioJPA.edit(user);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraParque.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 
@@ -95,6 +128,15 @@ public class ControladoraParque {
     public Juego obtenerJuego(int cod){
         
         return this.juegoJPA.findJuego(cod);
+    }
+    
+    public void editGame(Juego juego){
+        
+        try {
+            this.juegoJPA.edit(juego);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraParque.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
@@ -138,6 +180,10 @@ public class ControladoraParque {
     
     public List<Cliente> obtenerClientes(){
         return this.clienteJPA.findClienteEntities();
+    }
+    
+    public Cliente obtenerCliente(int id){
+        return this.clienteJPA.findCliente(id);
     }
     
     

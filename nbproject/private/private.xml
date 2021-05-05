@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/web/Template/scripts.jsp</file>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/web/indexEmployees.jsp</file>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/src/java/Persistencia/ControllerEmployed.java</file>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/web/listEmployees.jsp</file>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/web/listSchedules.jsp</file>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/web/createSchedule.jsp</file>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/web/js/scriptsSchedule.js</file>
+            <file>file:/C:/Users/gon/Documents/NetBeansProjects/PoloTicTpFinal/web/indexConfig.jsp</file>
+        </group>
     </open-files>
 </project-private>

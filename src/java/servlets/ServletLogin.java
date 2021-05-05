@@ -19,7 +19,7 @@ public class ServletLogin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        Usuario usu= (Usuario) request.getAttribute("user");
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -28,7 +28,7 @@ public class ServletLogin extends HttpServlet {
             out.println("<title>Servlet ServletLogin</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletLogin at user: " + usu.getUsuario()+"Id: " + usu.getId()+" pass: "+usu.getContraseña()+ "</h1>");
+            out.println("<h1>Servlet ServletLogin at user: " +  "Cerrando session"+ "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -37,60 +37,40 @@ public class ServletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session= request.getSession();
+        session.invalidate();
+        response.sendRedirect("/PoloPark/index.jsp");
+        
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
         
         HttpSession sesion= request.getSession();
-        sesion.setMaxInactiveInterval(3600);
-        
+        sesion.setMaxInactiveInterval(1800);
         
         String user_name= request.getParameter("user");
         String pass =request.getParameter("pass");
         
         ControladoraParque control= new ControladoraParque();
-        List<Usuario> usuarios=null;
-        usuarios=control.obtenerUsuarios();
-        Usuario user= this.encontrarUsuario(usuarios, user_name,pass);
-        
-
+        Usuario user= control.obtenerUsuarioByNameAndPass(user_name, pass);
         
         if (user==null) {
-            
             response.sendRedirect("index.jsp");
             
         }else{
             //RECUPERAR EMPLEADO
             int id= user.getId();
-            Empleado emp= control.obtenerEmpleado(36172960);
+            Empleado emp= control.obtenerEmpleadoIdUser(id);
             sesion.setAttribute("emple", emp);
+            sesion.setAttribute("user", user_name);
             //LINEA ORIGINAL
-            //response.sendRedirect("empleados.jsp");
             //LINEA DE PRUEBA
-            response.sendRedirect("indexEmpleados.jsp");
+            response.sendRedirect("indexPark.jsp");
         }
-        
-        
-        
-        //processRequest(request, response);
-        
-        
     }
     
-    private Usuario encontrarUsuario(List<Usuario> usuarios,String user_name,String pass){
-        
-         for (Usuario usu : usuarios) {
-            if (usu.getUsuario().equals(user_name) && usu.getContraseña().equals(pass)) {
-                return usu;
-                
-            }
-        }
-         return null;
-    }
 
     @Override
     public String getServletInfo() {

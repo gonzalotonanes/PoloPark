@@ -15,13 +15,13 @@ import javax.persistence.TemporalType;
 @MappedSuperclass
 public abstract class Persona {
     
-    @Id
-    private int dni;
+   
     @Basic
     private String nombre;
     private String apellido;
     private String direccion;
     private int telefono;
+    private int dni;
     @Temporal(TemporalType.DATE)
     private Date fechaNac;
 

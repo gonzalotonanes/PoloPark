@@ -7,6 +7,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,16 +17,20 @@ public class FiltroLogin implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpSession sesion= ((HttpServletRequest)request).getSession();
-        if (sesion.getAttribute("emple")!=null) {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+        
+        HttpSession session = req.getSession(false);
+        
+         boolean loggedIn = session != null && session.getAttribute("user") != null;
+        
+        if (loggedIn) {
             chain.doFilter(request, response);
         }else {
-            ((HttpServletResponse)response).sendRedirect("/PoloTicTpFinal/index.jsp");
+            ((HttpServletResponse)response).sendRedirect("/PoloPark/index.jsp");
         }
-        
         
     }
 

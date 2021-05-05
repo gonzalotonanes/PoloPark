@@ -49,10 +49,4 @@ public class Cliente  implements Serializable{
         this.apellido = apellido;
     }
     
-    
-
-   
-    
-    
-    
 }
