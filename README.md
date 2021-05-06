@@ -1,6 +1,7 @@
 # PoloPark
 
 Primer paso
+
 DROP DATABASEIF EXISTS parque;
 CREATE DATABASE IF NOT EXISTS PARQUE;
 
