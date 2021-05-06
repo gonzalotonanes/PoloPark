@@ -34,7 +34,7 @@ public class FilterSchedule implements Filter{
         if (!horarios.isEmpty()) {
             chain.doFilter(req, resp);
         }else {
-            ((HttpServletResponse)response).sendRedirect("/PoloPark/indexGames.jsp");
+            ((HttpServletResponse)response).sendRedirect("indexGame.jsp");
         }
     }
     

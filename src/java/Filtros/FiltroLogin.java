@@ -29,7 +29,7 @@ public class FiltroLogin implements Filter {
         if (loggedIn) {
             chain.doFilter(request, response);
         }else {
-            ((HttpServletResponse)response).sendRedirect("/PoloPark/index.jsp");
+            //((HttpServletResponse)response).sendRedirect("/PoloPark/index.jsp");
         }
         
     }

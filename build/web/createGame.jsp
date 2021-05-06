@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-4">
+                    <div class="form-group col-6">
                         <label>Horarios</label>
                         <select name="horario" class="form-control">
                             <c:forEach var="hTemp" items="${horarios}">

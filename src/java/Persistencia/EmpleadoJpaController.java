@@ -129,9 +129,16 @@ public class EmpleadoJpaController implements Serializable {
     public Empleado findEmpleadoByIdUser(int id) {
         EntityManager em = getEntityManager();
         Query nativeQuery = em.createNativeQuery("SELECT id, nombre, apellido, direccion, telefono, fechanac FROM empleado WHERE usuario_id = ?");
-        nativeQuery.setParameter(1, id);        
+        nativeQuery.setParameter(1, id);  
+         Object[] result =null;
+        try {
+           result= (Object[]) nativeQuery.getSingleResult();
+        } catch (Exception e) {
+            return null;    
+        }
         
-        Object[] result = (Object[]) nativeQuery.getSingleResult();
+        
+        System.out.println("********************************************************************************");
         return new Empleado(((Integer) result[0]), (String) result[1], (String) result[2],(String)result[3], (Integer)result[4], (Date)result[5]);
     }
     
